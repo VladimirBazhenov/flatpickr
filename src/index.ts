@@ -499,6 +499,11 @@ function FlatpickrInstance(
    * @param {boolean} triggerChange if change events should be triggered
    */
   function jumpToDate(jumpDate?: DateOption, triggerChange?: boolean) {
+    // goodcode fix
+    if(self.config?.preventJumpToDate) {
+      return;
+    }
+
     const jumpTo =
       jumpDate !== undefined
         ? self.parseDate(jumpDate)
